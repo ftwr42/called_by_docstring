@@ -1,0 +1,27 @@
+class TestClass:
+    def __init__(self):
+        """
+        Initialize the TestClass instance.
+        """
+        pass
+
+    def test_func_a(self):
+        """
+        Perform some action a.
+        called_by: test_func_b, test_func_c
+        """
+        _, _ = self.test_func_b, self.test_func_c()
+
+    def test_func_b(self):
+        """
+        Perform another action b.
+        called_by: test_func_a, test_func_c
+        """
+        _, _ = self.test_func_a(), self.test_func_c()
+
+    def test_func_c(self):
+        """
+        Perform yet another action c.
+        called_by: test_func_a, test_func_b
+        """
+        _, _ = self.test_func_a(), self.test_func_b()
